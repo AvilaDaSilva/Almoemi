@@ -22,7 +22,6 @@ class Itens
         if($post != null && $post != '') {
 //                $lala = strripos($post['nome'], "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ ", "aaaaeeiooouucAAAAEEIOOOUUC_");
             $itens = new \Model\Itens();
-            $itens->id = 2;
             $itens->nome = $post['nome'];
             $itens->cod_barra = $post['cod_barras'];
             $itens->quantidade = $post['quantidade'];

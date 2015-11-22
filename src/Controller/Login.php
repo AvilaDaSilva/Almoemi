@@ -14,10 +14,15 @@ class Login
             $result = $adapter->getLogin($post['matricula'], $post['senha']);
             if($result == false) {
                 $_SESSION['erro'] = "Login Inválido";
-                require '../view/login/index.phtml';//COISA QUE TU QUIZER RETORNAR NA VIEW
+                require '../view/login/index.phtml';
                 exit;
-            }else{
+            } else {
                 $_SESSION['nome'] = $result[0]['nome'];
+                if($result[0]['cargo'] == 1) {
+                    $_SESSION['permissao'] = 1;
+                } else {
+                    $_SESSION['permissao'] = 0;
+                }
                 header('Location: /itens');
             }
         }
