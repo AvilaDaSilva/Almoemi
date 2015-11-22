@@ -1,7 +1,99 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: avila
- * Date: 22/11/15
- * Time: 16:15
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Servidor EMI</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="../assets/css/starter-template.css" rel="stylesheet">
+    <link href="../assets/css/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+</head>
+
+<body>
+<?php if(isset($_SESSION['erro']) && $_SESSION['erro'] != null && $_SESSION['erro'] != ''){ ?>
+    <div class="alert alert-danger" role="alert">Falha ao salvar servidor!</div>
+    <?php $_SESSION['erro'] = null;
+} ?>
+<div class="blog-masthead" style="margin-top: -3%; font-size: 1.5em;">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item" href="/itens">Incial</a>
+            <a class="blog-nav-item" href="/itens/save">Add Item</a>
+            <a class="blog-nav-item" href="/servidor">Servidor</a>
+            <a class="blog-nav-item active" href="/servidor/save">Add Servidor</a>
+            <a class="blog-nav-item" href="/retirada">Retirada</a>
+            <a class="blog-nav-item" href="/sobre">Sobre</a>
+            <a class="blog-nav-item" href="/sair">Sair</a>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+    <form class="form-control" action="/servidor/save" method="POST">
+        <div class="row">
+            <div class="col-md-4" style="width: 30%; float: left;">
+                <label>Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+            </div>
+            <div class="col-md-4" style="width: 30%; float: left;">
+                <label>Matrícula</label>
+                <input type="text" class="form-control" id="matricula" name="matricula" placeholder="matricula">
+            </div>
+            <div class="col-md-4" style="width: 30%; float: left;">
+                <label>Satatus</label>
+                <select class="form-control" name="status">
+                    <option value="ATIVO" selected>ATIVO</option>
+                    <option value="INATIVO" selected>INATIVO</option>
+                </select>
+            </div>
+            <div class="col-md-4" style="width: 30%; float: left;">
+                <label>CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="cpf">
+            </div>
+            <div class="col-md-4" style="width: 30%; float: left;">
+                <label>Cargo</label>
+                <select class="form-control" name="cargo">
+                    <option value="" selected>SELECIONE O CARGO</option>
+                    <?php foreach($this->cargo as $cargo) { ?>
+                        <option value="<?= $cargo['cargo_id'] ?>"><?= $cargo['desc_cargo'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="float: right; margin-right: 18%; margin-top: -5.5%;">
+            <button class="btn btn-primary btn-large" type="submit" id="salvar">Salvar</button>
+        </div>
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
