@@ -26,11 +26,11 @@
 
 <body>
 <?php if(isset($_SESSION['erro']) && $_SESSION['erro'] != null && $_SESSION['erro'] != ''){ ?>
-    <div class="alert alert-danger" role="alert">Falha ao salvar dados!</div>
+    <div class="alert alert-danger" role="alert">Falha ao salvar servidor!</div>
     <?php $_SESSION['erro'] = null;
 } ?>
 <?php if(isset($_SESSION['sucesso']) && $_SESSION['sucesso'] != null && $_SESSION['sucesso'] != ''){ ?>
-    <div class="alert alert-danger" role="alert">Dados salvos com sucesso!</div>
+    <div class="alert alert-danger" role="alert">Servidor salvos com sucesso!</div>
     <?php $_SESSION['sucesso'] = null;
 } ?>
 <div class="blog-masthead" style="margin-top: -3%; font-size: 1.5em;">
@@ -56,36 +56,36 @@
                 Nome
             </td>
             <td>
-                Quantidade
+                Matrícula
             </td>
             <td>
-                Código de Barra
+                Status
             </td>
             <td>
-                Corredor
+                CPF
             </td>
             <td>
-                Prateleira
+                Cargo
             </td>
         </tr>
         </thead>
         <tbody>
-        <?php foreach($this->result as $itens) { ?>
+        <?php foreach($this->result as $servidor) { ?>
             <tr>
                 <td>
-                    <?= $itens['nome'] ?>
+                    <?= $servidor['nome'] ?>
                 </td>
                 <td>
-                    <?= $itens['quantidade'] ?>
+                    <?= $servidor['matricula'] ?>
                 </td>
                 <td>
-                    <?= $itens['cod_barra'] ?>
+                    <?= $servidor['status'] ?>
                 </td>
                 <td>
-                    <?= $itens['desc_corredor'] ?>
+                    <?= $servidor['cpf'] ?>
                 </td>
                 <td>
-                    <?= $itens['desc_prateleira'] ?>
+                    <?= $servidor['cargo'] ?>
                 </td>
             </tr>
         <?php } ?>
