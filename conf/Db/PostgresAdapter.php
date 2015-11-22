@@ -74,7 +74,16 @@ class PostgresAdapter implements AdapterInterface
         $stmp->execute();
         $result = $stmp->fetchAll();
         if($result != null && $result != ''){
-            return $result;
+            $matricula = $result[0]['matricula'];
+            $stmp2 = $this->db_adapter->prepare("SELECT * FROM gerente JOIN pessoa ON pessoa.matricula = gerente.matricula WHERE pessoa.matricula = $matricula;");
+            $stmp2->execute();
+            $pessoaCargo = $stmp2->fetchAll();
+            if($pessoaCargo != null && $pessoaCargo != '') {
+                return $pessoaCargo;
+            } else {
+                return $result;
+            }
+
         }
         return false;
 	}
