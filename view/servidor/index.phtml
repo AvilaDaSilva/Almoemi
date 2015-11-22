@@ -36,9 +36,9 @@
 <div class="blog-masthead" style="margin-top: -3%; font-size: 1.5em;">
     <div class="container">
         <nav class="blog-nav">
-            <a class="blog-nav-item active" href="/itens">Incial</a>
+            <a class="blog-nav-item" href="/itens">Incial</a>
             <a class="blog-nav-item" href="/itens/save">Add Item</a>
-            <a class="blog-nav-item" href="/servidor">Servidor</a>
+            <a class="blog-nav-item active" href="/servidor">Servidor</a>
             <a class="blog-nav-item" href="/servidor/save">Add Servidor</a>
             <a class="blog-nav-item" href="/retirada">Retirada</a>
             <a class="blog-nav-item" href="/sobre">Sobre</a>
@@ -85,7 +85,7 @@
                     <?= $servidor['cpf'] ?>
                 </td>
                 <td>
-                    <?= $servidor['cargo'] ?>
+                    <?= $servidor['desc_cargo'] ?>
                 </td>
             </tr>
         <?php } ?>
