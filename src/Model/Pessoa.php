@@ -47,6 +47,13 @@ abstract class Pessoa
 
 	protected $senha;
 
+    /**
+     *@var int
+     *
+     */
+
+    protected $cargo;
+
 
     public function __set($atrib, $value){
         $this->$atrib = $value;

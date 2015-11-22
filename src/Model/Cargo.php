@@ -13,7 +13,7 @@ class Cargo
 	protected $table_name = 'cargo';
 
 	/**
-	*@var int
+	*@var serial
 	*
 	*/
 

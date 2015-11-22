@@ -19,13 +19,6 @@ class Servidor extends Pessoa
 
     protected $matricula;
 
-    /**
-     *@var string
-     *
-     */
-
-    protected $cargo;
-
 
     public function __set($key, $value)
     {

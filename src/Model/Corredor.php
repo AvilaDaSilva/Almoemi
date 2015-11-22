@@ -13,7 +13,7 @@ class Corredor
     protected $table_name = 'corredor';
 
     /**
-     *@var int
+     *@var serial
      *
      */
 

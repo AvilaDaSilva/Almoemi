@@ -13,7 +13,7 @@ class Prateleira
     protected $table_name = 'prateleira';
 
     /**
-     *@var int
+     *@var serial
      *
      */
 

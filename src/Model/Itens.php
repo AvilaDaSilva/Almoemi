@@ -13,7 +13,7 @@ class Itens
 	protected $table_name = 'itens';
 
 	/**
-	*@var int
+	*@var serial
 	*
 	*/
 

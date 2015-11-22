@@ -13,7 +13,7 @@ class Logs
     protected $table_name = 'logs';
 
     /**
-     *@var int
+     *@var serial
      *
      */
 
