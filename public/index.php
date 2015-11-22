@@ -7,9 +7,11 @@ include 'bootstrap.php';
 
 use Controller\Login as Login;
 use Controller\Itens as Itens;
+use Controller\Servidor as Servidor;
 
 $login = new Login();
 $itens = new Itens();
+$servidor = new Servidor();
 session_start();
 $uri = $_SERVER['REQUEST_URI'];
 
@@ -18,12 +20,17 @@ if($uri == '/login')
 {
     $login->indexAction();
 }
-/* Pagina Itens */
-elseif($uri == '/itens' && @$_SESSION['nome'] != ''){
+elseif($uri == '/itens' && $_SESSION['nome'] != ''){
     $itens->indexAction();
 }
-elseif($uri == '/itens/save' && @$_SESSION['nome'] != ''){
+elseif($uri == '/itens/save' && $_SESSION['nome'] != '' && $_SESSION['permissao'] == 1){
     $itens->saveAction();
+}
+elseif($uri == '/servidor' && $_SESSION['nome'] != '' && $_SESSION['permissao'] == 1){
+    $servidor->indexAction();
+}
+elseif($uri == '/servidor/save' && $_SESSION['nome'] != '' && $_SESSION['permissao'] == 1){
+    $servidor->saveAction();
 }
 else
 {
