@@ -30,7 +30,7 @@ class PostgresAdapter implements AdapterInterface
 	{	
 		$table = $object->table_name;		
 		$array = $object->getArrayCopy();
-//		unset($array['id']);
+		unset($array['id']);
 		unset($array['table_name']);
 		$fields = implode(',', array_keys($array));
 		$values = ':'.implode(',:', array_keys($array));
