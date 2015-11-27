@@ -20,7 +20,6 @@ class Itens
         $this->prateleira = $adapter->fetchAll('prateleira');
         $post = $_POST;
         if($post != null && $post != '') {
-//                $lala = strripos($post['nome'], "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ ", "aaaaeeiooouucAAAAEEIOOOUUC_");
             $itens = new \Model\Itens();
             $itens->nome = $post['nome'];
             $itens->cod_barra = $post['cod_barras'];

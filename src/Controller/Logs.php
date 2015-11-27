@@ -4,14 +4,14 @@ namespace Controller;
 
 use \Db\DbAdapter as DbAdapter;
 
-class Servidor
+class Logs
 {
 
     public function indexAction()
     {
         $adapter = new DbAdapter();
-        $this->result = $adapter->fetchAll('servidor', "JOIN pessoa ON servidor.matricula = pessoa.matricula JOIN cargo ON cargo.id = pessoa.cargo");
-        require '../view/servidor/index.phtml';
+        $this->result = $adapter->fetchAll('logs', "JOIN gerente ON logs.gerente = gerente.matricula JOIN servidor ON logs.servidor = servidor.matricula JOIN itens ON itens.id = logs.itens");
+        require '../view/logs/save.phtml';
     }
     public function saveAction()
     {
