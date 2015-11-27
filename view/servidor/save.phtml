@@ -58,7 +58,7 @@
                 <label>Satatus</label>
                 <select class="form-control" name="status">
                     <option value="ATIVO" selected>ATIVO</option>
-                    <option value="INATIVO" selected>INATIVO</option>
+                    <option value="INATIVO">INATIVO</option>
                 </select>
             </div>
             <div class="col-md-4" style="width: 30%; float: left;">
@@ -70,7 +70,7 @@
                 <select class="form-control" name="cargo">
                     <option value="" selected>SELECIONE O CARGO</option>
                     <?php foreach($this->cargo as $cargo) { ?>
-                        <option value="<?= $cargo['cargo_id'] ?>"><?= $cargo['desc_cargo'] ?></option>
+                        <option value="<?= $cargo['id'] ?>"><?= $cargo['desc_cargo'] ?></option>
                     <?php } ?>
                 </select>
             </div>
