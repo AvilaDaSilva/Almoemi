@@ -12,6 +12,7 @@ use Controller\Servidor as Servidor;
 $login = new Login();
 $itens = new Itens();
 $servidor = new Servidor();
+$sobre = new \Controller\Sobre();
 session_start();
 $uri = $_SERVER['REQUEST_URI'];
 
@@ -31,6 +32,9 @@ elseif($uri == '/servidor' && $_SESSION['nome'] != '' && $_SESSION['permissao'] 
 }
 elseif($uri == '/servidor/save' && $_SESSION['nome'] != '' && $_SESSION['permissao'] == 1){
     $servidor->saveAction();
+}
+elseif($uri == '/sobre' && $_SESSION['nome'] != '' && $_SESSION['permissao'] == 1){
+    $sobre->indexAction();
 }
 else
 {

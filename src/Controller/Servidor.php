@@ -18,22 +18,26 @@ class Servidor
         $adapter = new DbAdapter();
         $this->cargo = $adapter->fetchAll('cargo');
         $servidor = new \Model\Servidor();
+        $pessoa = new \Model\Pessoa();
         $post = $_POST;
         if($post != null && $post != '') {
-            $servidor->matricula->matricula = $post['matricula'];
             $servidor->matricula = $post['matricula'];
-            $servidor->matricula->nome = $post['nome'];
-            $servidor->matricula->status = $post['status'];
-            $servidor->matricula->cpf = $post['cpf'];
-            $servidor->matricula->senha = $post['senha'];
-            $servidor->matricula->cargo = $post['cargo'];
+            $pessoa->matricula = $post['matricula'];
+            $pessoa->nome = $post['nome'];
+            $pessoa->status = $post['status'];
+            $pessoa->cpf = $post['cpf'];
+            $pessoa->senha = $post['senha'];
+            $pessoa->cargo = $post['cargo'];
             try {
+
                 $adapter->insert($servidor);
+                $adapter->insert($pessoa);
+                die('teste');
                 $_SESSION['sucesso'] = "Gravado com sucesso";
                 header('Location: /servidor');
                 exit;
             } catch(\Exception $e) {
-                $_SESSION['erro'] = "Falhar na gravação";
+                $_SESSION['erro'] = "Falha na gravação";
                 header('Location: /servidor/save');
                 exit;
             }

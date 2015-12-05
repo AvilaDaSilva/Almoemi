@@ -2,7 +2,7 @@
 
 namespace Model;
 
-abstract class Pessoa
+class Pessoa
 {
 
 	/**
@@ -62,6 +62,11 @@ abstract class Pessoa
     public function __get($atrib){
         return $this->$atrib;
     }
+
+	public function getArrayCopy()
+	{
+		return get_object_vars($this);
+	}
 }
 
 
